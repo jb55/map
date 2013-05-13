@@ -1,11 +1,5 @@
 
 /**
- * Module dependencies.
- */
-
-var toFunction = require('to-function');
-
-/**
  * Map the given `arr` with callback `fn(val, i)`.
  *
  * @param {Array} arr
@@ -14,11 +8,11 @@ var toFunction = require('to-function');
  * @api public
  */
 
-module.exports = function(arr, fn){
+module.exports = function(xs, fn){
   var ret = [];
-  fn = toFunction(fn);
-  for (var i = 0; i < arr.length; ++i) {
-    ret.push(fn(arr[i], i));
+  var len = xs.length;
+  for (var i = 0; i < len; ++i) {
+    ret.push(fn(xs[i], i));
   }
   return ret;
 };
